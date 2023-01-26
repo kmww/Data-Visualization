@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <style>
+      .linecap-demo {
+        stroke: darkmagenta;
+        stroke-width: 5;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="500px" height="500px">
+      <!-- 1. fill & opacity 속성 사용 -->
+      <!-- fill -->
+      <!-- <circle cx="120" cy="50" r="20" fill="darkmagenta" /> -->
+
+      <!-- opacity -->
+      <!-- <circle cx="100" cy="50" r="40" fill="rgba(0, 0, 255, .5)" /> -->
+      <!-- <circle cx="50" cy="50" r="40" fill="rgb(0, 0, 255)" opacity=".5" /> -->
+
+      <!-- 2. stroke 속성 사용 -->
+
+      <text x="0" y="20" font-weight="bold">Linecaps</text>
+      <text x="0" y="50">Butt</text>
+      <line
+        x1="60"
+        y1="45"
+        x2="200"
+        y2="45"
+        class="linecap-demo"
+        stroke-linecap="butt"
+      />
+      <text x="0" y="70">Round</text>
+      <line
+        x1="60"
+        y1="65"
+        x2="200"
+        y2="65"
+        class="linecap-demo"
+        stroke-linecap="round"
+      />
+      <text x="0" y="90">Square</text>
+      <line
+        x1="60"
+        y1="85"
+        x2="200"
+        y2="85"
+        class="linecap-demo"
+        stroke-linecap="square"
+      />
+    </svg>
+  </body>
+</html>
