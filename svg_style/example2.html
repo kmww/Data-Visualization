@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <style>
+      svg text {
+        text-anchor: middle;
+        fill: lightgrey;
+      }
+      svg rect {
+        fill: crimson;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="500px" height="500px">
+      <!-- SVG 출력 순서 설정 -->
+      <!-- SVG는 선언되는 순서에 따라 그려짐 -->
+      <!-- 코드에 처음 작선된 요소부터 출력 ~ 나중에 코딩된 요소가 맨 앞에 위치 -->
+
+      <text x="100" y="35">Text on bottom</text>
+      <rect x="0" y="0" width="200" height="60" />
+
+      <rect x="250" y="0" width="200" height="60" />
+      <text x="350" y="35">Text on top</text>
+    </svg>
+  </body>
+</html>
