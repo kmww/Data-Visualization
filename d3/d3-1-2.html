@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+      svg {
+        width: 700px;
+        height: 500px;
+      }
+      .top-label {
+        font-size: 13px;
+        font-style: italic;
+        text-transform: uppercase;
+        float: left;
+      }
+      .movie-label {
+        text-align: right;
+        font-weight: bold;
+        width: 145px;
+        padding-right: 10px;
+      }
+      .clearfix {
+        clear: both;
+      }
+      .bar {
+        fill: DarkSlateBlue;
+      }
+      .bar-label {
+        text-anchor: end;
+      }
+      .axis-label {
+        text-anchor: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+      const body = d3.select("body");
+
+      body.append("h2").text("2019년 1000만 관객 영화 관객수");
+
+      body
+        .append("div")
+        .attr("class", "top-label movie-label")
+        .append("p")
+        .text("영화");
+
+      body.append("div").attr("class", "top-label").append("p").text("관객수");
+
+      body.append("div").attr("class", "clearfix");
+
+      const svg = body.append("svg");
+      const barGroup = svg
+        .append("g")
+        .attr("class", "bar")
+        .attr("transform", "translate(150, 30) scale(0.00002459270787,1)");
+
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "0")
+        .attr("height", "20")
+        .attr("width", "16264984");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "25")
+        .attr("height", "20")
+        .attr("width", "13977602");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "50")
+        .attr("height", "20")
+        .attr("width", "13747792");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "75")
+        .attr("height", "20")
+        .attr("width", "12551371");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "100")
+        .attr("height", "20")
+        .attr("width", "10083172");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "125")
+        .attr("height", "20")
+        .attr("width", "9414388");
+      barGroup
+        .append("rect")
+        .attr("x", "0")
+        .attr("y", "150")
+        .attr("height", "20")
+        .attr("width", "8021290");
+
+      const barLabel = svg.append("g").attr("class", "bar-label");
+
+      barLabel.append("text").attr("x", "140").attr("y", "45").text("극한직업");
+      barLabel
+        .append("text")
+        .attr("x", "140")
+        .attr("y", "70")
+        .text("어벤져스:엔드게임");
+      barLabel
+        .append("text")
+        .attr("x", "140")
+        .attr("y", "95")
+        .text("겨울왕국2");
+      barLabel.append("text").attr("x", "140").attr("y", "120").text("알라딘");
+      barLabel.append("text").attr("x", "140").attr("y", "145").text("기생충");
+      barLabel.append("text").attr("x", "140").attr("y", "175").text("엑시트");
+      barLabel
+        .append("text")
+        .attr("x", "140")
+        .attr("y", "195")
+        .text("스파이더맨: 파 프롬 홈");
+
+      const xAxis = svg
+        .append("g")
+        .attr("transform", "translate(150,30)")
+        .attr("stroke", "black");
+
+      xAxis
+        .append("line")
+        .attr("x1", "0")
+        .attr("y1", "0")
+        .attr("x2", "0")
+        .attr("y2", "-10");
+      xAxis
+        .append("line")
+        .attr("x1", "137.75")
+        .attr("y1", "0")
+        .attr("x2", "137.75")
+        .attr("y2", "-10");
+      xAxis
+        .append("line")
+        .attr("x1", "275.5")
+        .attr("y1", "0")
+        .attr("x2", "275.5")
+        .attr("y2", "-10");
+      xAxis
+        .append("line")
+        .attr("x1", "413.25")
+        .attr("y1", "0")
+        .attr("x2", "413.25")
+        .attr("y2", "-10");
+
+      const xScale = svg
+        .append("g")
+        .attr("transform", "translate(150,30)")
+        .attr("class", "axis-label");
+
+      xScale.append("text").attr("x", "0").attr("y", "-15");
+      xScale
+        .append("text")
+        .attr("x", "137.75")
+        .attr("y", "-15")
+        .text("550만명");
+      xScale
+        .append("text")
+        .attr("x", "275.5")
+        .attr("y", "-15")
+        .text("1100만명");
+      xScale
+        .append("text")
+        .attr("x", "413.25")
+        .attr("y", "-15")
+        .text("1650만명");
+    </script>
+  </body>
+</html>
