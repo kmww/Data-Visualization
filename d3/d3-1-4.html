@@ -1,0 +1,54 @@
+<html>
+  <head> </head>
+  <body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <svg id="bargraph" width="400" height="100"></svg>
+
+    <button onclick="sortData()">Sort</button>
+    <script>
+      const homelessData = [
+        { state: 'Califonia', population: 134278 },
+        { state: 'Florida', population: 32190 },
+        { state: 'Washington', population: 21112 },
+        { state: 'New York', population: 89503 },
+        { state: 'Texas', population: 23548 },
+      ];
+
+      const barGroup = d3.select('#bargraph').append('g');
+
+      barGroup
+        .selectAll('rect')
+        .data(homelessData)
+        .enter()
+        .append('rect')
+        .attr('height', 19)
+        .attr('width', (d) => d.population / 500)
+        .attr('x', 100)
+        .attr('y', (_, i) => i * 20)
+        .attr('fill', 'pink');
+
+      barGroup
+        .selectAll('text')
+        .data(homelessData)
+        .enter()
+        .append('text')
+        .text((d) => d.state)
+        .attr('x', 96)
+        .attr('y', (_, i) => i * 20 + 17)
+        .attr('text-anchor', 'end');
+
+      const sortData = () => {
+        d3.select('#bargraph')
+          .selectAll('rect')
+          .sort((a, b) => d3.ascending(a.population, b.population))
+          .attr('y', (_, i) => i * 20);
+
+        d3.select('#bargraph')
+          .selectAll('text')
+          .sort((a, b) => d3.ascending(a.population, b.population))
+          .attr('y', (_, i) => i * 20 + 17);
+      };
+    </script>
+  </body>
+</html>
