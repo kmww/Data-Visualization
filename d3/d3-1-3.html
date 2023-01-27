@@ -57,6 +57,14 @@
       <circle class="violet" cx="150" cy="30" r="25" fill="violet"></circle>
       <circle cx="210" cy="30" r="25" fill="lightblue"></circle>
     </svg>
+    <br />
+    <br />
+    <button onclick="addElementsWithCall()">Insert Elements</button>
+    <div id="callBoxes" class="container">
+      <div class="box pink-box"></div>
+      <div class="box pink-box"></div>
+      <div class="box pink-box"></div>
+    </div>
 
     <script>
       // selection insert
@@ -95,6 +103,23 @@
         d3.select('.lowerSVG')
           .selectAll('circle')
           .attr('cx', (_, i) => 30 + i * 60);
+      };
+
+      // selection.call(f, [, arguments...])
+      // 인수로 전달된 함수 실행
+      const addElements = (selection, n) => {
+        let nodeList = selection.nodes();
+        for (let i = 0; i < nodeList.length; i++) {
+          for (let j = 0; j < n; j++) {
+            let newEl = d3.create('div').node();
+            newEl.className = 'box aqua-box';
+            nodeList[i].parentNode.insertBefore(newEl, nodeList[i]);
+          }
+        }
+      };
+
+      const addElementsWithCall = () => {
+        d3.selectAll('#callBoxes > div').call(addElements, 1);
       };
     </script>
   </body>
