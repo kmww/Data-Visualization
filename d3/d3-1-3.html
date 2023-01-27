@@ -34,7 +34,15 @@
       <div class="box pink-box"></div>
     </div>
 
+    <button onclick="cloneBox3()">Clone</button>
+    <div id="insertBox3">
+      <div class="box pink-box"></div>
+      <div class="box pink-box"></div>
+      <div class="box pink-box"></div>
+    </div>
+
     <script>
+      // selection insert
       const insertBox1 = () => {
         d3.select("#insertBox1").insert("div").classed("box aqua-box", true);
       };
@@ -42,6 +50,13 @@
       const insertBox2 = () => {
         d3.selectAll("#insertBox2 > div")
           .insert("div")
+          .classed("box aqua-box", true);
+      };
+
+      // selection clone
+      const cloneBox3 = () => {
+        d3.selectAll("#insertBox3 > div")
+          .clone(false)
           .classed("box aqua-box", true);
       };
     </script>
