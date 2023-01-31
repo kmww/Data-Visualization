@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style></style>
+  </head>
+  <body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+      async function getData() {
+        // csv 파일 가져오기
+        const csvData = await d3.csv('./movie.csv');
+        console.log('csv', csvData);
+
+        // tsv 파일 가져오기
+        const tsvData = await d3.tsv('./movie.tsv');
+        console.log('tsv', tsvData);
+
+        // text 파일 가져오기
+        const textData = await d3.text('./movie.csv');
+        console.log('text', textData);
+
+        // xml 파일 가져오기
+        const xmlData = await d3.xml('./movie.xml');
+        console.log('xml', xmlData);
+
+        // html 파일 가져오기
+        const htmlData = await d3.html('./movie.html');
+        console.log('html', htmlData);
+
+        // json 파일 가져오기
+        const jsonData = await d3.json('./movie.json');
+        console.log('json', jsonData);
+
+        // api request해서 가져오기
+      }
+
+      getData();
+    </script>
+  </body>
+</html>
