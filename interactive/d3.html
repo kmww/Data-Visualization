@@ -150,6 +150,10 @@
           svgGroup.selectAll('g.y-axis').call(yAxis);
           bars
             .data(selectedData)
+            .transition()
+            .duration(500)
+            .delay(500)
+            .ease(d3.easeLinear)
             .attr('y', (d) => y(d.name))
             .attr('width', (d) => x(d.value));
 
