@@ -8,8 +8,19 @@
         font-size: 13px;
       }
       .line-path {
-        fill: steelblue;
-        stroke: steelblue;
+        fill: lightgrey;
+        stroke: lightgrey;
+      }
+      .area-group {
+        fill: none;
+        stroke-width: 1.5;
+        stroke-miterlimit: 1;
+      }
+      .area1-path {
+        stroke: blue;
+      }
+      .area2-path {
+        stroke: red;
       }
     </style>
   </head>
@@ -55,8 +66,20 @@
         const area = d3
           .area()
           .x((d) => xScale(d.date))
-          .y0(yScale(0))
+          .y0((d) => yScale(d.lower))
           .y1((d) => yScale(d.close));
+
+        const areaSubGroup = svg.append('g').attr('class', 'area-group');
+
+        areaSubGroup
+          .append('path')
+          .attr('class', 'area1-path')
+          .attr('d', area.lineY0()(data));
+
+        areaSubGroup
+          .append('path')
+          .attr('class', 'area2-path')
+          .attr('d', area.lineY1()(data));
 
         svg
           .append('path')
@@ -66,9 +89,13 @@
 
         svg
           .append('g')
-          .attr('transform', 'translate(0,' + (height - margin.bottom) + ')');
+          .attr('transform', 'translate(0,' + (height - margin.bottom) + ')')
+          .call(xAxis);
 
-        svg.append('g').attr('transfor', 'translate(' + margin.left + ', 0)');
+        svg
+          .append('g')
+          .attr('transform', 'translate(' + margin.left + ', 0)')
+          .call(yAxis);
       }
 
       makeChart();
